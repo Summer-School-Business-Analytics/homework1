@@ -34,3 +34,21 @@ As per the above plot, petal.length and petal.width has the highest correlation 
 Irismean<-sapply(Filter(is.numeric, Iris.dt), mean)
 Irismean
 
+
+##Question 4
+```{r}
+ggplot(Iris.dt, aes(x=Sepal.Length, y=Sepal.Width, color=Species)) +
+  geom_point()+
+ggtitle("Correlation b/w Sepal Length and Sepal Width")+
+   ylab("Sepal Width")+
+  xlab("Sepal Length")
+```
+
+##Question 5
+```{r}
+ggplot(Iris.dt, aes(x=Petal.Length, y=Petal.Width, color=Species)) +
+  geom_point()+
+  ggtitle("Correlation b/w Petal Length and Petal Width")+
+  ylab("Petal Width")+
+  xlab("Petal Length")
+  
