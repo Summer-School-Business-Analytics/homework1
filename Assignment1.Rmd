@@ -1,0 +1,36 @@
+---
+title: "Assignment 1"
+output: pdf_document
+---
+
+##Loading Iris dataset
+
+```{r}
+install.packages("data.table")          #to add if require part
+library("data.table")
+Iris.dt<-setDT(iris)
+class(Iris.dt)
+
+library("corrplot")
+
+```
+##Question 1
+```{r}
+Irischar<-Iris.dt[,1:4]
+Iriscorr<-cor(Irischar)
+Iriscorrplot<-corrplot(Iriscorr, type="upper", order="hclust",method="circle",addCoef.col = "Green")
+
+```
+As per the above plot, petal.length and petal.width has the highest correlation coefficient of 0.96 showing strong positive relationship
+
+##Question 2
+```{r}
+
+```
+1) Correlation coefficients do not provide causation for the relationship. In addition, the correlation coefficient only looks at linear relationships. For example, a vehicle requires gasoline to drive. The correlation is positive for high volume of gasoline to duration and/or distance the vehicle drives. However, this does not take into account the type of gas. This additional variable has a significant impact on the relationship but would not be identified in a correlation coefficient.
+
+##Question 3
+```{r}
+Irismean<-sapply(Filter(is.numeric, Iris.dt), mean)
+Irismean
+
