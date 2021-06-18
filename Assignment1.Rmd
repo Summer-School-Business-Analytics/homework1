@@ -39,9 +39,6 @@ Iriscorrplot<-corrplot(Iriscorr, type="upper", order="hclust",method="circle",ad
 As per the above plot, petal length and petal width has the highest correlation coefficient of 0.96 indicating strong positive linear relationship.
 
 ##Question 2
-```{r}
-
-```
 1) Correlation coefficients do not provide causation for the relationship. In addition, the correlation coefficient only looks at linear relationships. For example, a vehicle requires gasoline to drive. The correlation is positive for high volume of gasoline to duration and/or distance the vehicle drives. However, this does not take into account the type of gas. This additional variable has a significant impact on the relationship but would not be identified in a correlation coefficient.
 
 ##Question 3
