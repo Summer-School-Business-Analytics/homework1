@@ -3,11 +3,12 @@ title: "Assignment 1"
 output: pdf_document
 ---
 ##Loading required packages
-```{r}
+```{r loadpackages}
 if(!require("pacman")) install.packages("pacman")
 pacman::p_load(esquisse, forecast, tidyverse, 
                gplots, GGally, gganimate,
                mosaic, scales, mosaic, mapproj, mlbench, data.table)
+install.packages("corrplot")
 library("corrplot")
 search()
 theme_set(theme_classic())
@@ -15,7 +16,7 @@ theme_set(theme_classic())
 
 ##Loading Iris dataset
 
-```{r}
+```{r Iris Data Table}
 data("iris")
 #checking class of iris dataset
 class("iris")
@@ -25,7 +26,7 @@ class(Iris.dt)
 
 ```
 ##Question 1
-```{r}
+```{r Question 1}
 #Keeping only numeric variables
 Irisnum.dt <- Filter(is.numeric, Iris.dt)
 
@@ -42,7 +43,7 @@ As per the above plot, petal length and petal width has the highest correlation 
 1) Correlation coefficients do not provide causation for the relationship. In addition, the correlation coefficient only looks at linear relationships. For example, a vehicle requires gasoline to drive. The correlation is positive for high volume of gasoline to duration and/or distance the vehicle drives. However, this does not take into account the type of gas. This additional variable has a significant impact on the relationship but would not be identified in a correlation coefficient.
 
 ##Question 3
-```{r}
+```{r Mean}
 #Keeping only numeric variables
 Irisnum.dt <- Filter(is.numeric, Iris.dt)
 
@@ -57,7 +58,7 @@ max(Irismean)
 Sepal.length variable has the highest mean of 5.843333
 
 ##Question 4
-```{r}
+```{r Sepal Correlation}
 ggplot(Iris.dt, aes(x=Sepal.Length, y=Sepal.Width, color=Species)) +
   geom_point()+
 ggtitle("Correlation b/w Sepal Length and Sepal Width")+
@@ -66,10 +67,10 @@ ggtitle("Correlation b/w Sepal Length and Sepal Width")+
 ```
 
 ##Question 5
-```{r}
+```{r Pedal Correlation}
 ggplot(Iris.dt, aes(x=Petal.Length, y=Petal.Width, color=Species)) +
   geom_point()+
   ggtitle("Correlation b/w Petal Length and Petal Width")+
   ylab("Petal Width")+
   xlab("Petal Length")
-  
+```
