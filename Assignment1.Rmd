@@ -67,7 +67,7 @@ ggtitle("Correlation b/w Sepal Length and Sepal Width")+
 ```
 
 ##Question 5
-```{r Pedal Correlation}
+```{r Petal Correlation}
 ggplot(Iris.dt, aes(x=Petal.Length, y=Petal.Width, color=Species)) +
   geom_point()+
   ggtitle("Correlation b/w Petal Length and Petal Width")+
