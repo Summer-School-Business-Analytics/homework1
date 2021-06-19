@@ -79,3 +79,9 @@ ggplot(Iris.dt, aes(x=Petal.Length, y=Petal.Width, color=Species)) +
 ##Question 6 
 The Petal Length and Petal Width combination provides a better separation of records between the two graphs becuase the variables of Petal Length and Petal Width are more highly correlated (0.96) than Sepal Length and Width (-0.12). Therefore there is a stronger relationship when the length of a Petal grows, so does the petal width of that species. On the other hand, even though sepal length has a negative relationship, it still does not directly impact the sepal width. 
 
+
+##Question 7 
+```{r Confusion Matrix Accuracy}
+7/100 #inaccurate divided by accurate predictions
+
+```
