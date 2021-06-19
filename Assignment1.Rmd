@@ -58,7 +58,7 @@ max(Irismean)
 Sepal.length variable has the highest mean of 5.843333
 
 ##Question 4
-```{r Sepal Correlation}
+```{r Sepal Relationship}
 ggplot(Iris.dt, aes(x=Sepal.Length, y=Sepal.Width, color=Species)) +
   geom_point()+
 ggtitle("Correlation b/w Sepal Length and Sepal Width")+
@@ -67,7 +67,7 @@ ggtitle("Correlation b/w Sepal Length and Sepal Width")+
 ```
 
 ##Question 5
-```{r Petal Correlation}
+```{r Petal Relatioship}
 ggplot(Iris.dt, aes(x=Petal.Length, y=Petal.Width, color=Species)) +
   geom_point()+
   ggtitle("Correlation b/w Petal Length and Petal Width")+
