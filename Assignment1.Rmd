@@ -85,19 +85,29 @@ The Petal Length and Petal Width combination provides a better separation of rec
 1-.07 #accuracy percentage
 
 ```
-##Question 8 
-```
-Sensitivity = (TP / (TP + FN)) = 45 / (45 + 5) = 45 / 50 -> 0.9 (90%)
+##Question 7 Explanation
+Calculating the actual classifications of each species, we gather the sum of each species and found they are equal [Versicolor = 50, Setosa = 50]. This means our NIR is .50. 
 
+Comparing the NIR (0.50) and the accuracy percentage of (0.93), the accuracy of the model is greater than the NIR. We can conclude that the current model can predict the calssifications 43% better than the NIR.
+
+##Question 8 
+``` {r Sensitivity}
+
+Sensitivity <- 45 / (45 + 5);Sensitivity
+
+#Sensitivity = (TP / (TP + FN)) = 45 / (45 + 5) = 45 / 50 -> 0.9 (90%)
 ```
 
 ##Question 9 
-```
-Specificity = (TN / (TN + FP)) = 48 / (48 + 2) = 48 / 50 -> 0.96 (96%)
+``` {r Specificity}
+
+Specificity <- 48 / (48 + 2);Specificity
+#Specificity = (TN / (TN + FP)) = 48 / (48 + 2) = 48 / 50 -> 0.96 (96%)
 ```
 
 ##Question 10 
-```
-Precision = (TP / (TP + FP)) = 45 / (45 + 2) = 45 / 47 -> 0.9574 (95.74%)
+``` {r Precision}
+Precision <- 45 / (45 + 2);Precision
+#Precision = (TP / (TP + FP)) = 45 / (45 + 2) = 45 / 47 -> 0.9574 (95.74%)
 
 ```
