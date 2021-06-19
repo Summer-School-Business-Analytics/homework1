@@ -86,5 +86,6 @@ The Petal Length and Petal Width combination provides a better separation of rec
 
 ```
 ##Question 9 
-```Specificity = (TN / (TN + FP)) = 48 / (48 + 2) = 48 / 50 -> 0.96 (96%)
+```
+Specificity = (TN / (TN + FP)) = 48 / (48 + 2) = 48 / 50 -> 0.96 (96%)
 ```
