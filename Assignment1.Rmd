@@ -85,7 +85,19 @@ The Petal Length and Petal Width combination provides a better separation of rec
 1-.07 #accuracy percentage
 
 ```
+##Question 8 
+```
+Sensitivity = (TP / (TP + FN)) = 45 / (45 + 5) = 45 / 50 -> 0.9 (90%)
+
+```
+
 ##Question 9 
 ```
 Specificity = (TN / (TN + FP)) = 48 / (48 + 2) = 48 / 50 -> 0.96 (96%)
+```
+
+##Question 10 
+```
+Precision = (TP / (TP + FP)) = 45 / (45 + 2) = 45 / 47 -> 0.9574 (95.74%)
+
 ```
