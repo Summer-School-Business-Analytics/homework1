@@ -94,7 +94,7 @@ ggplot(Iris.dt, aes(x=Petal.Length, y=Petal.Width, color=Species)) +
 
 __Question 6__
 
-The Petal Length and Petal Width combination provides a better separation of records between the two graphs because the variables of Petal Length and Petal Width are more highly correlated (0.96) than Sepal Length and Width (-0.12). The Petal graph in question 5 represents lower error rate when calculating the relationship using predictive variable between petal length and petal width, resulting in more defined clusters per species. There is significant overlap between Versicolor and Virginica species in the Sepal graph in question 4. The high error rate in this graph makes it difficult to classify the species (low separation) using these specific variables. 
+The Petal Length and Petal Width combination provides a better separation of records between the two graphs because the variables of Petal Length and Petal Width are more highly correlated (0.96) than Sepal Length and Width (-0.12). The Petal graph in question 5 represents lower error rate when calculating the relationship using predictive variable between petal length and petal width, resulting in more defined clusters per species. There is significant overlap between Versicolor and Virginica species in the Sepal graph in question 4. The high error rate in this graph makes it difficult to classify the species (low separation) using these specific variables when compared to Petal graph.
 
 __Question 7__
 
@@ -104,16 +104,16 @@ __Question 7__
 
 ```
 
-As per above calculations, accuracy of the model is 93%.
+As per above calculations, the accuracy of the model is 93%.
 
 _NIR:_
 
 The No Information Rate
-talks about the largest proportion of the observed classes. Calculating the actual classifications of each species, we gather the sum of each species and found they are equal [Versicolor = 50, Setosa = 50]. This means our NIR is .50. 
+talks about the proportion of the dominant class. Calculating the actual classifications of each species, we gather the sum of each species and found they are equal [Versicolor = 50, Setosa = 50]. This means our NIR is .50. 
 
 _Comparing NIR and accuracy: _
 
-Comparing the NIR (0.50) and the accuracy percentage of (0.93), the accuracy of the model is greater than the NIR. Since in NIR (0.5), only the dominant class is taken into account, our prediction will be correct only 50% of the time. Thus We can conclude that the current model can predict the classifications 43% better than the NIR.
+Comparing the NIR (0.50) and the accuracy percentage of (0.93), the accuracy of the model is greater than the NIR. Since in NIR (0.5), only the dominant class is taken into account, our prediction will be correct only 50% of the time. Therefore we can conclude that the current model which has accuracy rate of 93% can predict the classifications 43% better than the NIR.
 
 __Question 8__
 ``` {r Sensitivity}
