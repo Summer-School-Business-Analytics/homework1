@@ -108,8 +108,7 @@ As per above calculations, the accuracy of the model is 93%.
 
 _NIR:_
 
-The No Information Rate
-talks about the proportion of the dominant class. Calculating the actual classifications of each species, we gather the sum of each species and found they are equal [Versicolor = 50, Setosa = 50]. This means our NIR is .50. 
+The No Information Rate talks about the proportion of the dominant class. Calculating the actual classifications of each species, we gather the sum of each species and found they are equal [Versicolor = 50, Setosa = 50]. This means our NIR is .50. 
 
 _Comparing NIR and accuracy: _
 
