@@ -1,7 +1,6 @@
 ---
 title: "Homework 1"
-author: Ruth Colbert, Supriya Nunna, Alexander Lee, Harpreet Dhaliwal, Wenjuan Han,
-Arunabh Saikia,
+author: Ruth Colbert, Supriya Nunna, Alexander Lee, Harpreet Dhaliwal, Wenjuan Han, Arunabh Saikia
 date: "6/19/2021"
 output: pdf_document
 ---
@@ -14,10 +13,7 @@ if(!require("pacman")) install.packages("pacman")
 pacman::p_load(esquisse, forecast, tidyverse, 
                gplots, GGally, gganimate,
                mosaic, scales, mosaic, mapproj, mlbench, data.table)
-install.packages("knitr")
-install.packages("rmarkdown")
-install.packages("corrplot")
-tinytex::install_tinytex()
+
 library("corrplot")
 search()
 theme_set(theme_classic())
