@@ -1,14 +1,23 @@
 ---
-title: "Assignment 1"
+title: "Homework 1"
+author: Ruth Colbert, Supriya Nunna, Alexander Lee, Harpreet Dhaliwal, Wenjuan Han,
+Arunabh Saikia,
+date: "6/19/2021"
 output: pdf_document
 ---
 ##Loading required packages
 ```{r loadpackages}
+r = getOption("repos")
+r["CRAN"] = "http://cran.us.r-project.org"
+options(repos = r)
 if(!require("pacman")) install.packages("pacman")
 pacman::p_load(esquisse, forecast, tidyverse, 
                gplots, GGally, gganimate,
                mosaic, scales, mosaic, mapproj, mlbench, data.table)
+install.packages("knitr")
+install.packages("rmarkdown")
 install.packages("corrplot")
+tinytex::install_tinytex()
 library("corrplot")
 search()
 theme_set(theme_classic())
@@ -40,7 +49,9 @@ Iriscorrplot<-corrplot(Iriscorr, type="upper", order="hclust",method="circle",ad
 As per the above plot, petal length and petal width has the highest correlation coefficient of 0.96 indicating strong positive linear relationship.
 
 ##Question 2
-1) Correlation coefficients do not provide causation for the relationship. In addition, the correlation coefficient only looks at linear relationships. For example, a vehicle requires gasoline to drive. The correlation is positive for high volume of gasoline to duration and/or distance the vehicle drives. However, this does not take into account the type of gas or type of car being driven. The correlation for one brand of car with 15 gallons of gas may be stronger due it driving further, but another brand of car might have have 20 gallons of gas and drive a less distance due to the type of gas and MPG. The addition of variables have a significant impact on the relationship but would not be identified in a correlation coefficient.
+1) Correlation coefficients do not provide causation for the relationship.Let’s say, in Seattle, we found that winter coat sales are positively correlated to depression rate. However, winter coat sales are no way related to depression rate. This correlation could be caused by an unknown variable called “temperature” which affects both. When temperature decreases, the sales of winter coat increases. Also when the temperature decreases, people tend to be more depressed thus having high depression rate. This proves that Correlation does not provide causation. 
+
+2) In addition, the correlation coefficient only looks at linear relationships. For example, a vehicle requires gasoline to drive. The correlation is positive for high volume of gasoline to duration and/or distance the vehicle drives. However, this does not take into account the type of gas or type of car being driven. The correlation for one brand of car with 15 gallons of gas may be stronger due it driving further, but another brand of car might have have 20 gallons of gas and drive a less distance due to the type of gas and MPG. The addition of variables have a significant impact on the relationship but would not be identified in a correlation coefficient.
 
 ##Question 3
 ```{r Mean}
@@ -111,3 +122,5 @@ Precision <- 45 / (45 + 2);Precision
 #Precision = (TP / (TP + FP)) = 45 / (45 + 2) = 45 / 47 -> 0.9574 (95.74%)
 
 ```
+
+
