@@ -1,0 +1,143 @@
+---
+title: "Homework 1"
+author: Ruth Colbert, Supriya Nunna, Alexander Lee, Harpreet Dhaliwal, Wenjuan Han, Arunabh Saikia
+date: "6/19/2021"
+output: pdf_document
+---
+
+__For Knitting to pdf__
+```{r knitting to pdf}
+r = getOption("repos")
+r["CRAN"] = "http://cran.us.r-project.org"
+options(repos = r)
+```
+
+
+__Loading required packages__
+```{r loadpackages}
+if(!require("pacman")) install.packages("pacman")
+pacman::p_load(esquisse, forecast, tidyverse, 
+               gplots, GGally, gganimate,
+               mosaic, scales, mosaic, mapproj, mlbench, data.table)
+
+library("corrplot")
+search()
+theme_set(theme_classic())
+```
+
+__Loading Iris dataset__
+
+```{r Iris Data Table}
+data("iris")
+#checking class of iris dataset
+class("iris")
+#Converting to data.table 
+Iris.dt<-setDT(iris)
+class(Iris.dt)
+```
+
+__Question 1__
+```{r Question 1}
+#Keeping only numeric variables
+Irisnum.dt <- Filter(is.numeric, Iris.dt)
+
+#computing correlation of numeric variables
+Iriscorr<-cor(Irisnum.dt)
+
+#Visualizing the correlation matrix
+Iriscorrplot<-corrplot(Iriscorr, type="upper", order="hclust",method="circle",addCoef.col = "Green")
+
+```
+As per the above plot, petal length and petal width has the highest correlation coefficient of 0.96 indicating strong positive linear relationship.
+
+__Question 2__
+
+1) Correlation coefficients do not provide causation for the relationship. Let’s say, in Seattle, we found that winter coat sales are positively correlated to depression rate. However, winter coat sales are no way related to depression rate. This correlation could be caused by an unknown variable called “temperature” which affects both. When temperature decreases, the sales of winter coat increases. Also when the temperature decreases, people tend to be more depressed thus having high depression rate. This proves that Correlation does not provide causation. 
+
+2) In addition, the correlation coefficient only looks at linear relationships. For example, a vehicle requires gasoline to drive. The correlation is positive for high volume of gasoline to duration and/or distance the vehicle drives. However, this does not take into account the type of gas or type of car being driven. The correlation for one brand of car with 15 gallons of gas may be stronger due it driving further, but another brand of car might have have 20 gallons of gas and drive a less distance due to the type of gas and MPG. The addition of variables have a significant impact on the relationship but would not be identified in a correlation coefficient.
+
+__Question 3__
+
+```{r Mean}
+#Keeping only numeric variables
+Irisnum.dt <- Filter(is.numeric, Iris.dt)
+
+#Calculating mean
+Irismean<-sapply(Irisnum.dt, mean)
+Irismean
+```
+```{r}
+#Checking maximum of calculated mean
+max(Irismean)
+```
+Sepal.length variable has the highest mean of 5.843333
+
+__Question 4__
+
+```{r Sepal Relationship}
+ggplot(Iris.dt, aes(x=Sepal.Length, y=Sepal.Width, color=Species)) +
+  geom_point()+
+ggtitle("Correlation b/w Sepal Length and Sepal Width")+
+   ylab("Sepal Width")+
+  xlab("Sepal Length")
+```
+
+__Question 5__
+
+```{r Petal Relatioship}
+ggplot(Iris.dt, aes(x=Petal.Length, y=Petal.Width, color=Species)) +
+  geom_point()+
+  ggtitle("Correlation b/w Petal Length and Petal Width")+
+  ylab("Petal Width")+
+  xlab("Petal Length")
+```
+
+__Question 6__
+
+The Petal Length and Petal Width combination provides a better separation of records between the two graphs because the variables of Petal Length and Petal Width are more highly correlated (0.96) than Sepal Length and Width (-0.12). The Petal graph in question 5 represents lower error rate when calculating the relationship using predictive variable between petal length and petal width, resulting in more defined clusters per species. There is significant overlap between Versicolor and Virginica species in the Sepal graph in question 4. The high error rate in this graph makes it difficult to classify the species (low separation) using these specific variables when compared to Petal graph.
+
+__Question 7__
+
+```{r Confusion Matrix Accuracy}
+(2+5)/100 #overall error rate
+1-.07 #accuracy percentage
+
+```
+
+As per above calculations, the accuracy of the model is 93%.
+
+_NIR:_
+```{r}
+Setosa <- (45+5); Setosa #Sum of Actual Classifications of Setosa
+Versicolor <-(2+48); Versicolor #Sum of Actual Classifications of Versicolor
+```
+
+The No Information Rate talks about the proportion of the dominant class. Calculating the actual classifications of each species, we gather the sum of each species and found they are equal [Versicolor = 50, Setosa = 50]. This means our NIR is .50. 
+
+_Comparing NIR and accuracy: _
+
+Comparing the NIR (0.50) and the accuracy percentage of (0.93), the accuracy of the model is greater than the NIR. Since in NIR (0.5), only the dominant class is taken into account, our prediction will be correct only 50% of the time. Therefore we can conclude that the current model which has accuracy rate of 93% can predict the classifications 43% better than the NIR.
+
+__Question 8__
+``` {r Sensitivity}
+
+Sensitivity <- 45 / (45 + 5);Sensitivity
+
+#Sensitivity = (TP / (TP + FN)) = 45 / (45 + 5) = 45 / 50 -> 0.9 (90%)
+```
+
+__Question 9__
+``` {r Specificity}
+
+Specificity <- 48 / (48 + 2);Specificity
+#Specificity = (TN / (TN + FP)) = 48 / (48 + 2) = 48 / 50 -> 0.96 (96%)
+```
+
+__Question 10__
+``` {r Precision}
+Precision <- 45 / (45 + 2);Precision
+#Precision = (TP / (TP + FP)) = 45 / (45 + 2) = 45 / 47 -> 0.9574 (95.74%)
+
+```
+
+
